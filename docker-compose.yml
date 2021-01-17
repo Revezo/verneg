@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  verneg:
+    image: revezo/verneg:0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: verneg
+    ports:
+      - "28970:28970/udp"
+      - "55887:55887/udp"
+      - 28975:28975
