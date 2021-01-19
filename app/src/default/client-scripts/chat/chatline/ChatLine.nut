@@ -1,4 +1,4 @@
-class ChatLine {
+class ChatLine extends AbstractChatLine {
     line = null;
 
 	// int, int, int, string

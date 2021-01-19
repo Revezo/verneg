@@ -31,12 +31,12 @@ local function keyHandler(key) {
 
 local function messageHandler(pid, r, g, b, message) {
     if (pid != -1) {
-        print("CONSOLE AAAAAAAAA");
-        Chat.printPlayer(pid, r, g, b, message);
+        Chat.printLine(PlayerChatLine(pid, r, g, b, message));
     } else {
-        Chat.print(r, g, b, message);
+        Chat.printLine(ChatLine(r, g, b, message));
     }
 }
+
 
 addEventHandler("onKey", keyHandler);
 addEventHandler("onPlayerMessage", messageHandler);

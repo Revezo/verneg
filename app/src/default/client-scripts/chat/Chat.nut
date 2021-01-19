@@ -30,14 +30,6 @@ function Chat::hide() {
 	}
 }
 
-function Chat::printPlayer(pid, r, g, b, msg) {
-	printLine(ChatPlayerLine(pid, r, g, b, msg));
-}
-
-function Chat::print(r, g, b, msg) {
-	printLine(ChatLine(r, g, b, msg));
-}
-
 function Chat::printLine(line) {
 	if (visible) {
 		line.show();

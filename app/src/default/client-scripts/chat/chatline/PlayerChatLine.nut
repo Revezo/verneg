@@ -1,4 +1,4 @@
-class ChatPlayerLine {
+class PlayerChatLine extends AbstractChatLine {
     line = null;
     nickname = null;
 
