@@ -10,20 +10,20 @@
 		</center>
 	]]>
 	</description>
-	
+
 	<!-- Default -->
 	<import src="default/scripts.xml" />
-	
+
 	<!-- Gamemode -->
 	<import src="gamemodes/prototype/scripts.xml" />
 	<script src="examples/client-scripts/npc.nut" type="client" />
 	<script src="examples/client-scripts/itemrender.nut" type="client" />
 	<script src="examples/client-scripts/sounds.nut" type="client" />
-	
+
 	<!-- Ids -->
 	<items src="items.xml" />
 	<mds src="mds.xml" />
-	
+
 	<wayfile map="NEWWORLD" src="waypoints/newworld.xml" />
 	<wayfile map="OLDWORLD" src="waypoints/oldworld.xml" />
 	<wayfile map="ADDONWORLD" src="waypoints/addonworld.xml" />

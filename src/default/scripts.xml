@@ -1,6 +1,11 @@
 <server>
+	<!-- chat -->
+	<script src="client-scripts/chat/chat.nut" type="client" />
+	<script src="client-scripts/chat/chatline.nut" type="client" />
+	<script src="client-scripts/chat/chatplayerline.nut" type="client" />
+	<script src="client-scripts/chat/chatevents.nut" type="client" />
+
 	<script src="client-scripts/playerlist.nut" type="client" />
-	<script src="client-scripts/chat.nut" type="client" />
 	<script src="client-scripts/net.nut" type="client" />
 	<script src="server-scripts/acp.nut" type="server" />
 </server>
