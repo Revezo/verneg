@@ -82,14 +82,6 @@ function onPlayerDead(pid, kid)
 
 addEventHandler("onPlayerDead", onPlayerDead);
 
-function onPlayerMessage(pid, message)
-{
-	print(getPlayerName(pid) + " said: " + message);
-	sendPlayerMessageToAll(pid, 255, 255, 255, message);
-}
-
-addEventHandler("onPlayerMessage", onPlayerMessage);
-
 function onPlayerDisconnect(pid, reason)
 {
 	PlayerList[pid].clear();

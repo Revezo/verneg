@@ -13,6 +13,7 @@
 
 	<!-- Default -->
 	<import src="src/default/scripts.xml" />
+	<import src="src/chat/scripts.xml" />
 
 	<!-- Gamemode -->
 	<import src="src/gamemodes/prototype/scripts.xml" />

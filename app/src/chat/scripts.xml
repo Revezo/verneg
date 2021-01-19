@@ -1,0 +1,9 @@
+<server>
+	<script src="client-scripts/Chat.nut" type="client" />
+	<script src="client-scripts/chatline/AbstractChatLine.nut" type="client" />
+	<script src="client-scripts/chatline/ChatLine.nut" type="client" />
+	<script src="client-scripts/chatline/PlayerChatLine.nut" type="client" />
+	<script src="client-scripts/ClientChatListener.nut" type="client" />
+
+	<script src="server-scripts/ServerChatListener.nut" type="server" />
+</server>

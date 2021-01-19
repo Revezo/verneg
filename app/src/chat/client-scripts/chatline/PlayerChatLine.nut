@@ -9,7 +9,7 @@ class PlayerChatLine extends AbstractChatLine {
 
         local color = getPlayerColor(pid);
         nickname = Draw(0, 0, getPlayerName(pid) + ": ");
-        nickname.setColor(color.r, color.g, color.b);
+        nickname.setColor(r, g, b);
     }
 
     function show() {
