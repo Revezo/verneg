@@ -11,15 +11,12 @@
 	]]>
 	</description>
 
-	<!-- Default -->
-	<import src="src/default/scripts.xml" />
-	<import src="src/chat/scripts.xml" />
+	<import src="src/base/scripts.xml" />
 
 	<!-- Gamemode -->
 	<import src="src/gamemodes/prototype/scripts.xml" />
+
 	<script src="src/examples/client-scripts/npc.nut" type="client" />
-	<script src="src/examples/client-scripts/itemrender.nut" type="client" />
-	<script src="src/examples/client-scripts/sounds.nut" type="client" />
 
 	<!-- Ids -->
 	<items src="config/items.xml" />

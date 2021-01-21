@@ -1,19 +1,15 @@
-class Player
-{
-	constructor()
-	{
-		clear();
-	}
+class Player {
+    constructor() {
+        clear();
+    }
 
-	function clear()
-	{
-		sprintEnabled = false;
-	}
+    function clear() {
+        sprintEnabled = false;
+    }
 
-	function toggleSprint()
-	{
-		sprintEnabled = !sprintEnabled;
-	}
+    function toggleSprint() {
+        sprintEnabled = !sprintEnabled;
+    }
 
-	sprintEnabled = false;
+    sprintEnabled = false;
 };

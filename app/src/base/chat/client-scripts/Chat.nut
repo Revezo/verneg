@@ -10,25 +10,6 @@ Chat <- {
 	maxLines = CHAT_LINE_SIZE,
 }
 
-function Chat::toggle() {
-	visible ? hide() : show();
-}
-
-function Chat::show() {
-	visible = true;
-
-	foreach (line in lines) {
-		line.show();
-	}
-}
-
-function Chat::hide() {
-	visible = false;
-
-	foreach (line in lines) {
-		line.hide();
-	}
-}
 
 function Chat::printLine(line) {
 	if (visible) {
@@ -44,6 +25,28 @@ function Chat::printLine(line) {
 	}
 
 	calcPosition();
+}
+
+function Chat::toggle() {
+	visible ? hide() : show();
+}
+
+
+// private
+function Chat::show() {
+	visible = true;
+
+	foreach (line in lines) {
+		line.show();
+	}
+}
+
+function Chat::hide() {
+	visible = false;
+
+	foreach (line in lines) {
+		line.hide();
+	}
 }
 
 function Chat::calcPosition() {

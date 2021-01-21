@@ -1,4 +1,5 @@
 local function keyHandler(key) {
+    print("chat keyHandler")
     if (chatInputIsOpen()) {
         playGesticulation(heroId);
 
@@ -40,5 +41,3 @@ local function messageHandler(pid, r, g, b, message) {
 
 addEventHandler("onKey", keyHandler);
 addEventHandler("onPlayerMessage", messageHandler);
-
-print("chat.nut loaded...")

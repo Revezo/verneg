@@ -1,5 +1,3 @@
-local MAX_DISTANCE = 1500;
-
 local function playerMessage(pid, message) {
     print(getPlayerName(pid) + " said: " + message);
 
@@ -18,5 +16,3 @@ local function playerMessage(pid, message) {
         }
     }
 }
-
-addEventHandler("onPlayerMessage", playerMessage);

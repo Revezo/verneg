@@ -27,7 +27,7 @@ local function initHandler()
 
 	vob = Vob("MIN_ORE_BIG_V1.3DS");
 	vob.setPosition(0, 0, 800);
-	
+
 	print("Time (msec): " + sound.playingTime);
 	print("Time 3d (msec): " + sound3d.playingTime);
 }
@@ -41,19 +41,19 @@ local function commandHandler(cmd, params)
 	case "play":
 		sound.play();
 		break;
-		
+
 	case "play3d":
 		sound3d.stop();
 		sound3d.setTargetVob(vob);
 		sound3d.play();
 		break;
-		
+
 	case "playVoice":
 		sound3d.stop();
 		sound3d.setTargetPlayer(npc);
 		sound3d.play();
 		break;
-		
+
 	case "volume":
 		sound3d.volume = 0.5;
 		break;
