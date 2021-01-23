@@ -34,4 +34,4 @@ local function packetReceiver(pid, packet) {
     compiledScript();
 }
 
-addPacketListener(PACKET.RPC, packetReceiver);
+addPacketListener(PacketId.RPC, packetReceiver);

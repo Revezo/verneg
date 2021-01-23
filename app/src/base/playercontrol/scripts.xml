@@ -5,7 +5,7 @@
 	<script src="client-side/PlayerList.nut" type="client" />
 	<script src="client-side/PlayerListListener.nut" type="client" />
 
-	<script src="server-scripts/player.nut" type="server" />
-	<script src="server-scripts/playerlist.nut" type="server" />
-	<script src="server-scripts/main.nut" type="server" />
+	<script src="server-side/player.nut" type="server" />
+	<script src="server-side/playerlist.nut" type="server" />
+	<script src="server-side/main.nut" type="server" />
 </server>

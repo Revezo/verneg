@@ -15,11 +15,8 @@ function removePacketListener(id) {
     delete packetListeners[id];
 }
 
-addEventHandler("onPacket", function(...) {
-    print("in client onPackeet: +");
-    print("vargv[0]:|" + vargv[0] + "|");
-    print("=========================");
-    local packet = vargv[0];
+addEventHandler("onPacket", function(packet) {
+    print("in client onPacket: +");
     local id = packet.readUInt16();
     if (id in packetListeners) {
         packetListeners[id](packet);

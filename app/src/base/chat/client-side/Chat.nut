@@ -15,9 +15,7 @@ Chat <- {
         lines.push(line);
 
         if (lines.len() > maxLines) {
-            local line = lines.front();
-            line.hide();
-
+            lines.front().hide();
             lines.pop();
         }
 

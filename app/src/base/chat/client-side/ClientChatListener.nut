@@ -36,6 +36,11 @@ local function messageHandler(pid, r, g, b, message) {
     }
 }
 
+function printMeMessage(pid, r, g, b, message) {
+    print("in printing me message");
+    Chat.printLine(MeChatLine(pid, r, g, b, message));
+    print("me line print");
+}
 
 addEventHandler("onKey", keyHandler);
 addEventHandler("onPlayerMessage", messageHandler);

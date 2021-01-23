@@ -1,9 +1,11 @@
 <server>
-	<script src="client-scripts/Chat.nut" type="client" />
-	<script src="client-scripts/chatline/AbstractChatLine.nut" type="client" />
-	<script src="client-scripts/chatline/ChatLine.nut" type="client" />
-	<script src="client-scripts/chatline/PlayerChatLine.nut" type="client" />
-	<script src="client-scripts/ClientChatListener.nut" type="client" />
+	<script src="client-side/Chat.nut" type="client" />
+	<script src="client-side/chatline/AbstractChatLine.nut" type="client" />
+	<script src="client-side/chatline/ChatLine.nut" type="client" />
+	<script src="client-side/chatline/PlayerChatLine.nut" type="client" />
+	<script src="client-side/chatline/MeChatLine.nut" type="client" />
 
-	<script src="server-scripts/ServerChatListener.nut" type="server" />
+	<script src="client-side/ClientChatListener.nut" type="client" />
+
+	<script src="server-side/ServerChatListener.nut" type="server" />
 </server>

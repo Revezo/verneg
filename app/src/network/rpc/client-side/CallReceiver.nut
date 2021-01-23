@@ -1,7 +1,6 @@
 local function packetReceiver(packet) {
     local func = packet.readString() + "(";
     local len = packet.readChar();
-
     for (local i = 0; i < len; ++i) {
         if (i > 0) func += ","
 
@@ -27,11 +26,10 @@ local function packetReceiver(packet) {
                 break;
         }
     }
-
     func += ")";
     print(func)
     local compiledScript = compilestring(func);
     compiledScript();
 }
 
-addPacketListener(PACKET.RPC, packetReceiver);
+addPacketListener(PacketId.RPC, packetReceiver);

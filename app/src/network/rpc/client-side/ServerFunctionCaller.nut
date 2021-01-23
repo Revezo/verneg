@@ -1,4 +1,4 @@
-function callServerFunc(funcName, ...) {
+function callServerFunction(funcName, ...) {
     packet <- Packet();
     packet.writeChar(PacketId.RPC);
     packet.writeString(funcName);

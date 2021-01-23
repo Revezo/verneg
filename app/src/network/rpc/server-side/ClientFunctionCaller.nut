@@ -1,9 +1,11 @@
-function callClientFunc(pid, funcName, ...) {
+function callClientFunction(pid, funcName, ...) {
     print("Send packet")
     print(PacketId.RPC);
     packet <- Packet();
-    packet.writeChar(PacketId.RPC);
+    packet.writeUInt16(PacketId.RPC);
+    print("funcName: " + funcName);
     packet.writeString(funcName);
+    print("vargv.len(): " + vargv.len())
     packet.writeChar(vargv.len());
 
     foreach(val in vargv) {

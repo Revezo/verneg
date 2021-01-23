@@ -1,4 +1,4 @@
-local function setPlayersPropertiesAndEquipment() {
+local function setPlayersPropertiesAndEquipment(pid) {
     // Stats
     setPlayerHealth(pid, 1000);
     setPlayerMaxHealth(pid, 1000);
@@ -29,13 +29,13 @@ local function setPlayersPropertiesAndEquipment() {
 
 function onPlayerJoin(pid) {
     sendMessageToAll(0, 255, 0, getPlayerName(pid) + " connected with the server.");
-    setPlayersPropertiesAndEquipment();
+    setPlayersPropertiesAndEquipment(pid);
     spawnPlayer(pid);
     setPlayerPosition(pid, 0, 0, 0);
 }
 function onPlayerRespawn(pid) {
     sendMessageToAll(255, 100, 0, getPlayerName(pid) + " has respawned.");
-    setPlayersPropertiesAndEquipment();
+    setPlayersPropertiesAndEquipment(pid);
     spawnPlayer(pid);
 }
 

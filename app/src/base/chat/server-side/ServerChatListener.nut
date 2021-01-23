@@ -33,7 +33,8 @@ local function cmdHandler(pid, cmd, params) {
                         local r = 255*pow(0.85, power);
                         local g = 70*pow(0.85, power);
                         local b = 233*pow(0.85, power);
-                        sendPlayerMessageToPlayer(pid, i, r.tointeger(), g.tointeger(), b.tointeger(), params);
+                        // sendPlayerMessageToPlayer(pid, i, r.tointeger(), g.tointeger(), b.tointeger(), params);
+                        callClientFunction(i, "printMeMessage", pid, r.tointeger(), g.tointeger(), b.tointeger(), params);
                     }
                 }
             }
