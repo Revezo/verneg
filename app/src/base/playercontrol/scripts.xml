@@ -1,7 +1,11 @@
 <server>
-	<script src="client-scripts/BaseListener.nut" type="client" />
-	<script src="client-scripts/NetStats.nut" type="client" />
-	<script src="client-scripts/NetStatsListener.nut" type="client" />
-	<script src="client-scripts/PlayerList.nut" type="client" />
-	<script src="client-scripts/PlayerListListener.nut" type="client" />
+	<script src="client-side/BaseListener.nut" type="client" />
+	<script src="client-side/NetStats.nut" type="client" />
+	<script src="client-side/NetStatsListener.nut" type="client" />
+	<script src="client-side/PlayerList.nut" type="client" />
+	<script src="client-side/PlayerListListener.nut" type="client" />
+
+	<script src="server-scripts/player.nut" type="server" />
+	<script src="server-scripts/playerlist.nut" type="server" />
+	<script src="server-scripts/main.nut" type="server" />
 </server>

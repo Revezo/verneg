@@ -6,5 +6,4 @@
 	<script src="client-scripts/ClientChatListener.nut" type="client" />
 
 	<script src="server-scripts/ServerChatListener.nut" type="server" />
-	<script src="server-scripts/sss.nut" type="server" />
 </server>

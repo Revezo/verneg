@@ -3,7 +3,6 @@ local function initHandler() {
 }
 
 local function keyHandler(key) {
-    print("net keyHandler")
     if (key == KEY_F6) {
         if (!chatInputIsOpen() && !NetStats.showed)
             NetStats.show();

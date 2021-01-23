@@ -1,8 +1,6 @@
 local function keyHandler(key) {
-    print("chat keyHandler")
     if (chatInputIsOpen()) {
         playGesticulation(heroId);
-
         switch (key) {
             case KEY_RETURN:
                 chatInputSend();

@@ -52,7 +52,6 @@ local function resChange()
 
 local function keyHandler(key)
 {
-	print("playerlist keyHandler")
 	if (key == KEY_F5 && !chatInputIsOpen())
 		PlayerList.toggle();
 }

@@ -12,11 +12,7 @@
 	</description>
 
 	<import src="src/base/scripts.xml" />
-
-	<!-- Gamemode -->
-	<import src="src/gamemodes/prototype/scripts.xml" />
-
-	<script src="src/examples/client-scripts/npc.nut" type="client" />
+	<import src="src/network/scripts.xml" />
 
 	<!-- Ids -->
 	<items src="config/items.xml" />

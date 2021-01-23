@@ -3,6 +3,7 @@ function onInit() {
     Chat.print(0, 255, 0, "Welcome on " + getHostname() + "!");
 }
 
+
 function onCommand(cmd, params) {
     switch (cmd) {
         case "q":
@@ -16,8 +17,16 @@ function onCommand(cmd, params) {
 
             print("x: " + vec.x + " y: " + vec.y + " z: " + vec.z + " angle: " + angle);
             break;
+        case "aaa":
+            print("calling onMyNewEvent event");
     }
 }
+
+
+local function onMyNewEvent() {
+    print("in client-side onMyNewEvent");
+}
+addEventHandler("onMyNewEvent", onMyNewEvent);
 
 addEventHandler("onInit", onInit);
 addEventHandler("onCommand", onCommand);

@@ -1,0 +1,7 @@
+<server>
+    <script src="client-side/CallReceiver.nut" type="client" />
+    <script src="client-side/ServerFunctionCaller.nut" type="client" />
+
+    <script src="server-side/CallReceiver.nut" type="server" />
+    <script src="server-side/ClientFunctionCaller.nut" type="server" />
+</server>
