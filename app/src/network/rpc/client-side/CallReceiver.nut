@@ -28,8 +28,11 @@ local function packetReceiver(packet) {
     }
     func += ")";
     print(func)
+    print("a");
     local compiledScript = compilestring(func);
+    print("b");
     compiledScript();
+    print("c");
 }
 
 addPacketListener(PacketId.RPC, packetReceiver);

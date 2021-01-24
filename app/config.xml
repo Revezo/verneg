@@ -11,6 +11,7 @@
 	]]>
 	</description>
 
+	<import src="src/events/scripts.xml" />
 	<import src="src/base/scripts.xml" />
 	<import src="src/network/scripts.xml" />
 

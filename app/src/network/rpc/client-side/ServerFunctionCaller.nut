@@ -1,10 +1,17 @@
-function callServerFunction(funcName, ...) {
+function sendEventToServer(eventName, params) {
+    print("sendEventToServer: " + eventName + "|" + params.len());
+    local rpcCallParams = [eventName];
+    rpcCallParams.extend(params);
+    callClientFunction(pid, "callEvent", rpcCallParams);
+}
+
+function callServerFunction(funcName, params) {
     packet <- Packet();
     packet.writeChar(PacketId.RPC);
     packet.writeString(funcName);
-    packet.writeChar(vargv.len());
+    packet.writeChar(params.len());
 
-    foreach(val in vargv) {
+    foreach(val in params) {
         switch (typeof(val)) {
             case "null":
                 packet.writeChar('n');

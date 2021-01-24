@@ -1,14 +1,21 @@
-function callClientFunction(pid, funcName, ...) {
+function sendEventToClient(pid, eventName, params) {
+    print("sendEventToClient: " + pid + "|" + eventName + "|" + params.len());
+    local rpcCallParams = [eventName];
+    rpcCallParams.extend(params);
+    callClientFunction(pid, "callEvent", rpcCallParams);
+}
+
+function callClientFunction(pid, funcName, params) {
     print("Send packet")
     print(PacketId.RPC);
     packet <- Packet();
     packet.writeUInt16(PacketId.RPC);
     print("funcName: " + funcName);
     packet.writeString(funcName);
-    print("vargv.len(): " + vargv.len())
-    packet.writeChar(vargv.len());
+    print("params.len(): " + params.len())
+    packet.writeChar(params.len());
 
-    foreach(val in vargv) {
+    foreach(val in params) {
         switch (typeof(val)) {
             case "null":
                 packet.writeChar('n');

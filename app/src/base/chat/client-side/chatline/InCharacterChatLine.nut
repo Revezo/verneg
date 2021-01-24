@@ -1,19 +1,16 @@
-class MeChatLine extends AbstractChatLine {
-    static color = Color(255, 70, 233);
+class InCharacterChatLine extends AbstractChatLine {
+    static rgb = 255;
     line = null;
     nickname = null;
 
     constructor(pid, distance, text) {
-        local r = (chatDistanceColorDivisor(distance) * color.r).tointeger();
-        local g = (chatDistanceColorDivisor(distance) * color.g).tointeger();
-        local b = (chatDistanceColorDivisor(distance) * color.b).tointeger();
-
+        print("params:" + pid + "|" + distance + "|" + text);
+        local color = (chatDistanceColorDivisor(distance) * rgb).tointeger();
         line = Draw(0, 0, strip(text));
+        line.setColor(color, color, color);
 
-        line.setColor(r, g, b);
-
-        nickname = Draw(0, 0, ">> " + getPlayerName(pid) + " ");
-        nickname.setColor(r, g, b);
+        nickname = Draw(0, 0, getPlayerName(pid) + ": ");
+        nickname.setColor(color, color, color);
     }
 
     function show() {

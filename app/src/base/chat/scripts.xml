@@ -1,9 +1,15 @@
 <server>
+	<script src="client-side/Color.nut" type="client" />
+	<script src="client-side/ChatUtils.nut" type="client" />
+
 	<script src="client-side/Chat.nut" type="client" />
 	<script src="client-side/chatline/AbstractChatLine.nut" type="client" />
 	<script src="client-side/chatline/ChatLine.nut" type="client" />
-	<script src="client-side/chatline/PlayerChatLine.nut" type="client" />
+	<script src="client-side/chatline/InCharacterChatLine.nut" type="client" />
 	<script src="client-side/chatline/MeChatLine.nut" type="client" />
+	<script src="client-side/chatline/DoChatLine.nut" type="client" />
+	<script src="client-side/chatline/LocalOocChatLine.nut" type="client" />
+	<script src="client-side/chatline/GlobalOocChatLine.nut" type="client" />
 
 	<script src="client-side/ClientChatListener.nut" type="client" />
 

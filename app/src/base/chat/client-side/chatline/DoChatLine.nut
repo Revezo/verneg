@@ -1,9 +1,10 @@
-class ChatLine extends AbstractChatLine {
+class DoChatLine extends AbstractChatLine {
+    static color = Color(126, 86, 209);
     line = null;
 
-    constructor(r, g, b, text) {
-        line = Draw(0, 0, text);
-        line.setColor(r, g, b);
+    constructor(pid, text) {
+        line = Draw(0, 0, ">> " + strip(text) + " (( " + getPlayerName(pid) + " )) <<");
+        line.setColor(color.r, color.g, color.b);
     }
 
     function show() {

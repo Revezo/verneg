@@ -1,15 +1,14 @@
-class PlayerChatLine extends AbstractChatLine {
+class GlobalOocChatLine extends AbstractChatLine {
+    static color = Color(0, 108, 249);
     line = null;
     nickname = null;
 
-    // int, int, int, int, string
-    constructor(pid, r, g, b, text) {
-        line = Draw(0, 0, text);
-        line.setColor(r, g, b);
+    constructor(pid, text) {
+        line = Draw(0, 0, strip(text) + " ))");
+        line.setColor(color.r, color.g, color.b);
 
-        local color = getPlayerColor(pid);
-        nickname = Draw(0, 0, getPlayerName(pid) + ": ");
-        nickname.setColor(r, g, b);
+        nickname = Draw(0, 0, "(( " + getPlayerName(pid) + ": ");
+        nickname.setColor(color.r, color.g, color.b);
     }
 
     function show() {
@@ -22,7 +21,6 @@ class PlayerChatLine extends AbstractChatLine {
         nickname.visible = false;
     }
 
-    // int, int
     function update(x, y) {
         line.setPositionPx(nickname.widthPx + x, y);
         nickname.setPositionPx(x, y);
