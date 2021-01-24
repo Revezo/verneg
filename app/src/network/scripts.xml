@@ -1,0 +1,4 @@
+<server>
+    <import src="packet/scripts.xml" />
+	<import src="rpc/scripts.xml" />
+</server>
