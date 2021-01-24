@@ -28,46 +28,48 @@ local function onKey(key) {
     }
 }
 
-function onPlayerMessage(pid, r, g, b, message) {
-    print("onPlayerMessage");
+local function onPlayerMessage(senderId, r, g, b, message) {
     Chat.printLine(ChatLine(r, g, b, message));
-    print("onPlayerMessage finish");
 }
 
-function onInCharacterMessage(pid, distance, message) {
-    print("print IC");
-    Chat.printLine(InCharacterChatLine(pid, distance, message));
-    print("print IC finish");
+function onInCharacterMessage(senderId, distance, message) {
+    Chat.printLine(InCharacterChatLine(senderId, distance, message));
 }
 
-function onMeMessage(pid, distance, message) {
-    print("print me");
-    Chat.printLine(MeChatLine(pid, distance, message));
-    print("print me finish");
+function onMeMessage(senderId, distance, message) {
+    Chat.printLine(MeChatLine(senderId, distance, message));
 }
 
-function onDoMessage(pid, message) {
-    print("print do");
-    Chat.printLine(DoChatLine(pid, message));
-    print("print do finish");
+function onDoMessage(senderId, message) {
+    Chat.printLine(DoChatLine(senderId, message));
 }
 
-function onLocalOocMessage(pid, message) {
-    print("print b");
-    Chat.printLine(LocalOocChatLine(pid, message));
-    print("print b finish");
+function onLocalOocMessage(senderId, message) {
+    Chat.printLine(LocalOocChatLine(senderId, message));
 }
 
-function onGlobalOocMessage(pid, message) {
-    print("print bo");
-    Chat.printLine(GlobalOocChatLine(pid, message));
-    print("print bo finish");
+function onGlobalOocMessage(senderId, message) {
+    Chat.printLine(GlobalOocChatLine(senderId, message));
 }
 
-addEventHandler("onKey", onKey);
-addEventHandler("onPlayerMessage", onPlayerMessage);
-addEventHandler("onInCharacterMessage", onInCharacterMessage);
-addEventHandler("onMeMessage", onMeMessage);
-addEventHandler("onDoMessage", onDoMessage);
-addEventHandler("onLocalOocMessage", onLocalOocMessage);
-addEventHandler("onGlobalOocMessage", onGlobalOocMessage);
+function onPrivateMessageSent(receiverId, message) {
+    print("onPrivateMessageSent")
+    Chat.printLine(SentPmChatLine(receiverId, message))
+    print("onPrivateMessageSent finish")
+}
+
+function onPrivateMessageReceived(senderId, message) {
+    print("onPrivateMessageReceived")
+    Chat.printLine(ReceivedPmChatLine(senderId, message))
+    print("onPrivateMessageReceived finish")
+}
+
+addEventHandler("onKey", onKey)
+addEventHandler("onPlayerMessage", onPlayerMessage)
+addEventHandler("onInCharacterMessage", onInCharacterMessage)
+addEventHandler("onMeMessage", onMeMessage)
+addEventHandler("onDoMessage", onDoMessage)
+addEventHandler("onLocalOocMessage", onLocalOocMessage)
+addEventHandler("onGlobalOocMessage", onGlobalOocMessage)
+addEventHandler("onPrivateMessageSent", onPrivateMessageSent)
+addEventHandler("onPrivateMessageReceived", onPrivateMessageReceived)

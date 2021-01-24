@@ -1,4 +1,4 @@
-local DISTANCE_DIVISOR = 300;
+const DISTANCE_DIVISOR = 300;
 
 function chatDistanceColorDivisor(distance) {
     local power = (distance / DISTANCE_DIVISOR).tointeger()
