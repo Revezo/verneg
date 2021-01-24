@@ -1,0 +1,27 @@
+<server>
+	<config public=true host_name="Gothic Online" max_slots=32 port=28970 rcon_pass="SomePassword" />
+	<master host="192.166.219.231" port=7777 />
+	<version build=0 />
+	<world name="NEWWORLD\\NEWWORLD.ZEN" />
+	<description>
+	<![CDATA[
+		<center>
+			<b><font color=blue>Gothic</font> 2 <font color=red>Online</font> 0.1.9.0</b><br>
+		</center>
+	]]>
+	</description>
+
+	<import src="src/events/scripts.xml" />
+	<import src="src/base/scripts.xml" />
+	<import src="src/network/scripts.xml" />
+
+	<!-- Ids -->
+	<items src="config/items.xml" />
+	<mds src="config/mds.xml" />
+
+	<wayfile map="NEWWORLD" src="config/waypoints/newworld.xml" />
+	<wayfile map="OLDWORLD" src="config/waypoints/oldworld.xml" />
+	<wayfile map="ADDONWORLD" src="config/waypoints/addonworld.xml" />
+
+	<modification enabled=true />
+</server>

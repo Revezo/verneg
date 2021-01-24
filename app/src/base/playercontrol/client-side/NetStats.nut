@@ -1,7 +1,3 @@
-/////////////////////////////////////////
-///	Network statistics class
-/////////////////////////////////////////
-
 NetStats <- {
 	_title = Draw(anx(5), any(5), "Network debug"),
 	_ping = null,
@@ -15,8 +11,6 @@ NetStats <- {
 	_byteToSend = null,
 	showed = false
 }
-
-//---------------------------------------
 
 function NetStats::constructor()
 {
@@ -38,8 +32,6 @@ function NetStats::constructor()
 	}, 500, 0);
 }
 
-//---------------------------------------
-
 function NetStats::show()
 {
 	if (showed) return;
@@ -56,8 +48,6 @@ function NetStats::show()
 	_messageSend.visible = true;
 	_byteToSend.visible = true;
 }
-
-//---------------------------------------
 
 function NetStats::hide()
 {
@@ -76,8 +66,6 @@ function NetStats::hide()
 	_byteToSend.visible = false;
 }
 
-//---------------------------------------
-
 function NetStats::update()
 {
 	local stats = getNetworkStats();
@@ -92,32 +80,3 @@ function NetStats::update()
 	_messageSend.text = format("Bytes to resend: %i", stats.bytesInResendBuffer);
 	_byteToSend.text = format("Bytes to send: %i", stats.bytesInSendBuffer);
 }
-
-/////////////////////////////////////////
-///	Events
-/////////////////////////////////////////
-
-function initHandler()
-{
-	NetStats.constructor();
-}
-
-addEventHandler("onInit", initHandler);
-
-//---------------------------------------
-
-local function keyHandler(key)
-{
-	if (key == KEY_F6)
-	{
-		if (!chatInputIsOpen() && !NetStats.showed)
-			NetStats.show();
-		else if (NetStats.showed)
-			NetStats.hide();
-	}
-}
-
-addEventHandler("onKey", keyHandler);
-
-// Loaded
-print("net.nut loaded...")

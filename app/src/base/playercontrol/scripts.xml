@@ -1,0 +1,11 @@
+<server>
+	<script src="client-side/BaseListener.nut" type="client" />
+	<script src="client-side/NetStats.nut" type="client" />
+	<script src="client-side/NetStatsListener.nut" type="client" />
+	<script src="client-side/PlayerList.nut" type="client" />
+	<script src="client-side/PlayerListListener.nut" type="client" />
+
+	<script src="server-side/player.nut" type="server" />
+	<script src="server-side/playerlist.nut" type="server" />
+	<script src="server-side/main.nut" type="server" />
+</server>

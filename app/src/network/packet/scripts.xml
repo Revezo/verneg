@@ -1,0 +1,6 @@
+<server>
+	<script src="global/Packet.nut" type="client" />
+	<script src="global/Packet.nut" type="server" />
+	<script src="client-side/PacketListener.nut" type="client" />
+	<script src="server-side/PacketListener.nut" type="server" />
+</server>

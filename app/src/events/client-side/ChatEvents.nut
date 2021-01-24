@@ -1,0 +1,7 @@
+addEvent("onInCharacterMessage")
+addEvent("onDoMessage")
+addEvent("onMeMessage")
+addEvent("onLocalOocMessage")
+addEvent("onGlobalOocMessage")
+addEvent("onPrivateMessageSent")
+addEvent("onPrivateMessageReceived")

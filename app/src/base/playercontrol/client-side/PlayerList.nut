@@ -17,7 +17,7 @@ PlayerList <- {
 	_lineHeightPx = -1,
 	_begin = 0,
 	_size = 0,
-	
+
 	// Public
 	visible = false,
 	x = -1,
@@ -53,9 +53,9 @@ function PlayerList::constructor()
 		tex.setPositionPx(PlayerList.x - 25,PlayerList.y - 15);
 		tex.setSizePx(PlayerList.width + 50, PlayerList.height + 30);
 	});
-	
+
 	// Add more textures after this line...
-	
+
 	// Top
 	foreach (header in _headers)
 		header.draw.top();
@@ -111,7 +111,7 @@ function PlayerList::show()
 {
 	if (visible) return;
 	visible = true;
-	
+
 	_hostname.visible = true;
 
 	foreach (header in _headers)
@@ -129,7 +129,7 @@ function PlayerList::hide()
 {
 	if (!visible) return;
 	visible = false;
-	
+
 	_hostname.visible = false;
 
 	foreach (header in _headers)
@@ -146,16 +146,16 @@ function PlayerList::hide()
 function PlayerList::scroll(value)
 {
 	_hideActive();
-	
+
 	// Calculate new begin
 	local len = _size - MAX_PLAYERS + 1;
 	if (len < 0) len = 0;
-	
+
 	_begin -= value;
 
 	if (_begin < 0) _begin = 0;
 	else if (_begin > len) _begin = len;
-	
+
 	_showActive();
 }
 
@@ -166,7 +166,7 @@ function PlayerList::insert(pid)
 	if (pid >= _items.len()) return;
 
 	local playerItem = heroId != pid ? PlayerListItem(pid, 255, 255, 255) : PlayerListItem(pid, 255, 150, 0);
-	
+
 	_items[pid] = playerItem;
 	++_size;
 
@@ -178,7 +178,7 @@ function PlayerList::insert(pid)
 function PlayerList::remove(pid)
 {
 	if (pid >= _items.len()) return;
-	
+
 	_items[pid] = null;
 	--_size;
 }
@@ -207,12 +207,12 @@ function PlayerList::resize()
 		header.draw.setPositionPx(headerX + width, headerY);
 		width += (nax(header.width) + header.draw.widthPx);
 	}
-	
+
 	for (local i = _begin; i < _items.len() && count < MAX_PLAYERS - 1; ++i)
 	{
 		local item = _items[i];
 		if (!item) continue;
-		
+
 		item.update(x, y + offset);
 
 		offset += item.offset();
@@ -228,7 +228,7 @@ function PlayerList::resize()
 function PlayerList::_hideActive()
 {
 	local count = 0;
-	
+
 	for (local i = _begin; i < _items.len() && count < MAX_PLAYERS - 1; ++i)
 	{
 		local item = _items[i];
@@ -250,7 +250,7 @@ function PlayerList::_showActive()
 	{
 		local item = _items[i];
 		if (!item) continue;
-			
+
 		item.update(x, y + offset);
 		item.show();
 
@@ -283,7 +283,7 @@ class PlayerListItem
 	{
 		if (visible) return;
 		visible = true;
-		
+
 		foreach (column in columns)
 			column.visible = true;
 	}
@@ -292,7 +292,7 @@ class PlayerListItem
 	{
 		if (!visible) return;
 		visible = false;
-	
+
 		foreach (column in columns)
 			column.visible = false;
 	}
@@ -317,99 +317,3 @@ class PlayerListItem
 	columns = null;
 	visible = false;
 }
-
-/////////////////////////////////////////
-///	Events
-/////////////////////////////////////////
-
-local function playerCreate(pid)
-{
-	local playerItem = PlayerList.insert(pid);
-
-	// Init item with default data
-	local color = getPlayerColor(pid);
-
-	playerItem.columns[PlayerList.ID].text = pid.tostring();
-	playerItem.columns[PlayerList.NICKNAME].text = getPlayerName(pid);
-	playerItem.columns[PlayerList.NICKNAME].setColor(color.r, color.g, color.b);
-	playerItem.columns[PlayerList.PING].text = getPlayerPing(pid);
-}
-
-addEventHandler("onPlayerCreate", playerCreate);
-
-//---------------------------------------
-
-local function playerDestroy(pid)
-{
-	PlayerList.remove(pid);
-}
-
-addEventHandler("onPlayerDestroy", playerDestroy);
-
-//---------------------------------------
-
-local function playerPing(pid, ping)
-{
-	local playerItem = PlayerList.getItem(pid);
-	if (playerItem == null) return;
-
-	playerItem.columns[PlayerList.PING].text = ping.tostring();
-}
-
-addEventHandler("onPlayerChangePing", playerPing);
-
-//---------------------------------------
-
-local function playerNickname(pid, name)
-{
-	local playerItem = PlayerList.getItem(pid);
-	if (playerItem == null) return;
-
-	playerItem.columns[PlayerList.NICKNAME].text = name;
-}
-
-addEventHandler("onPlayerChangeNickname", playerNickname);
-
-//---------------------------------------
-
-local function playerColor(pid, r, g, b)
-{
-	local playerItem = PlayerList.getItem(pid);
-	if (playerItem == null) return;
-
-	playerItem.columns[PlayerList.NICKNAME].setColor(r, g, b);
-}
-
-addEventHandler("onPlayerChangeColor", playerColor);
-
-//---------------------------------------
-
-local function keyHandler(key)
-{
-	if (key == KEY_F5 && !chatInputIsOpen())
-		PlayerList.toggle();
-}
-
-addEventHandler("onKey", keyHandler);
-
-//---------------------------------------
-
-local function mouseWheel(value)
-{
-	if (PlayerList.visible)
-		PlayerList.scroll(value);
-}
-
-addEventHandler("onMouseWheel", mouseWheel);
-
-//---------------------------------------
-
-local function resChange()
-{
-	PlayerList.resize();
-}
-
-addEventHandler("onChangeResolution", resChange);
-
-// Initialize PlayerList
-PlayerList.constructor();
