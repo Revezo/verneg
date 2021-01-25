@@ -11,3 +11,14 @@ services:
       - "28970:28970/udp"
       - "55887:55887/udp"
       - 28975:28975
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: verneg_db
+      MYSQL_USER: verneg
+      MYSQL_PASSWORD: verneg
+    ports:
+      - 3306:3306
+    restart: on-failure:10
