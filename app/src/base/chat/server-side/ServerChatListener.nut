@@ -5,6 +5,7 @@ local function onPlayerMessage(senderId, text) {
 local function chatCommandHandler(senderId, cmd, params) {
     switch (cmd) {
         case "me":
+            Mysql.findOne()
             ChatEventSender.sendLocalDistanceRelativeChatEvents(senderId, "onMeMessage", params);
             break;
         case "do":
