@@ -9,3 +9,6 @@
 # IDE Files
 .idea
 .vscode
+
+# Builds
+*.bin

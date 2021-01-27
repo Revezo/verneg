@@ -1,0 +1,3 @@
+<server>
+    <import src="packet/scripts.xml" />
+</server>
