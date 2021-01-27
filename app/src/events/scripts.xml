@@ -1,3 +1,5 @@
 <server>
 	<script src="client-side/ChatEvents.nut" type="client" />
+
+	<script src="server-side/PlayerEvents.nut" type="server" />
 </server>

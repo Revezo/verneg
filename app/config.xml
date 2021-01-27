@@ -13,10 +13,11 @@
 
 	<import src="src/events/scripts.xml" />
 	<import src="src/base/scripts.xml" />
+	<import src="src/player/scripts.xml" />
 	<import src="src/infrastructure/scripts.xml" />
 
  	<module src="modules/MySQL.so" type="server" />
-	
+
 	<!-- Ids -->
 	<items src="config/items.xml" />
 	<mds src="config/mds.xml" />
