@@ -6,13 +6,9 @@ function sendEventToClient(pid, eventName, params) {
 }
 
 function callClientFunction(pid, funcName, params) {
-    print("Send packet")
-    print(PacketId.RPC);
     packet <- Packet();
     packet.writeUInt16(PacketId.RPC);
-    print("funcName: " + funcName);
     packet.writeString(funcName);
-    print("params.len(): " + params.len())
     packet.writeChar(params.len());
 
     foreach(val in params) {

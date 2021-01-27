@@ -1,13 +1,14 @@
 function sendEventToServer(eventName, params) {
-    print("sendEventToServer: " + eventName + "|" + params.len());
+    print("sendEventToServer: " + eventName + "|" + params.len())
     local rpcCallParams = [eventName];
     rpcCallParams.extend(params);
-    callClientFunction(pid, "callEvent", rpcCallParams);
+    callServerFunction("callEvent", rpcCallParams);
 }
 
 function callServerFunction(funcName, params) {
+    print("creating packet")
     packet <- Packet();
-    packet.writeChar(PacketId.RPC);
+    packet.writeUInt16(PacketId.RPC);
     packet.writeString(funcName);
     packet.writeChar(params.len());
 
@@ -38,7 +39,8 @@ function callServerFunction(funcName, params) {
                 break;
         }
     }
-
+    print("sending packet")
     packet.send(RELIABLE_ORDERED);
     delete packet;
+    print("packet send to server")
 }
