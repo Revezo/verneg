@@ -35,14 +35,13 @@ CREATE TABLE users_characters (
 CREATE TABLE characters_positions (
     id INT NOT NULL AUTO_INCREMENT,
     character_id INT NOT NULL,
-    pos_x FLOAT NOT NULL,
-    pos_y FLOAT NOT NULL,
-    pos_z FLOAT NOT NULL,
+    pos_x BIGINT NOT NULL,
+    pos_y BIGINT NOT NULL,
+    pos_z BIGINT NOT NULL,
+    angle INT NOT NULL,
     PRIMARY KEY(id),
     UNIQUE(character_id)
 );
 
 INSERT INTO characters(id, name, uuid) VALUES (1, "reveso", UUID());
 INSERT INTO characters(id, name, uuid) VALUES (2, "user", UUID());
-INSERT INTO characters_positions(character_id, pos_x, pos_y, pos_z) VALUES (1, 100, 0, 0);
-INSERT INTO characters_positions(character_id, pos_x, pos_y, pos_z) VALUES (2, 200, 0, 50);
