@@ -1,1 +1,2 @@
+addEvent("onPlayerAuthenticate")
 addEvent("onPlayerPositionSave")
