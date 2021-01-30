@@ -34,5 +34,6 @@ setTimer(function() {
     }
 }, TEN_MINUTES_IN_MILIS, 0);
 addEventHandler("onPlayerAuthenticate", onPlayerAuthenticate)
+addEventHandler("onPlayerRegister", onPlayerAuthenticate)
 addEventHandler("onPlayerRespawn", onPlayerRespawn)
 addEventHandler("onPlayerPositionSave", onPlayerPositionSave)

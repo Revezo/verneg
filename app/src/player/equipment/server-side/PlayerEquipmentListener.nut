@@ -30,9 +30,15 @@ local function setPlayersPropertiesAndEquipment(pid) {
 function onPlayerAuthenticate(pid) {
     setPlayersPropertiesAndEquipment(pid);
 }
+
+function onPlayerRegister(pid) {
+    setPlayersPropertiesAndEquipment(pid);
+}
+
 function onPlayerRespawn(pid) {
     setPlayersPropertiesAndEquipment(pid);
 }
 
 addEventHandler("onPlayerAuthenticate", onPlayerAuthenticate)
+addEventHandler("onPlayerRegister", onPlayerRegister)
 addEventHandler("onPlayerRespawn", onPlayerRespawn)

@@ -3,4 +3,5 @@
     <script src="server-side/AccountAuthentication.nut" type="server" />
     <script src="server-side/Player.nut" type="server" />
     <script src="server-side/PlayerList.nut" type="server" />
+    <script src="server-side/AccountRepository.nut" type="server" />
 </server>

@@ -1,22 +1,23 @@
 function onPlayerJoin(pid) {
     print(getPlayerName(pid) + " Joined")
-    AccountAuthentication.authenticate(pid)
+    AccountAuthentication.authenticateId(pid)
 }
 
 function onPlayerDisconnect(pid, reason) {
-    PlayerList.get(pid).clear();
+    local username = getPlayerName(pid)
+    PlayerList.remove(pid)
 
     switch (reason) {
         case DISCONNECTED:
-            sendMessageToAll(255, 0, 0, getPlayerName(pid) + " disconnected from the server.");
+            sendMessageToAll(255, 0, 0, username + " disconnected from the server.");
             break;
 
         case LOST_CONNECTION:
-            sendMessageToAll(255, 0, 0, getPlayerName(pid) + " lost connection with the server.");
+            sendMessageToAll(255, 0, 0, username + " lost connection with the server.");
             break;
 
         case HAS_CRASHED:
-            sendMessageToAll(255, 0, 0, getPlayerName(pid) + " has crashed.");
+            sendMessageToAll(255, 0, 0, username + " has crashed.");
             break;
     }
 
