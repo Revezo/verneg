@@ -1,6 +1,6 @@
 PlayerPositionRepository <- {
 
-    function lastPosition(playerName) {
+    function playerExists(playerName) {
         local connection = Mysql.connection()
         local playerPosition = extractPosition(connection, playerName)
         Mysql.close(connection)
@@ -9,8 +9,9 @@ PlayerPositionRepository <- {
 
     function saveLastPosition(playerName, position) {
         local connection = Mysql.connection()
-        savePosition(connection, playerName, position)
+        local playerPosition = savePosition(connection, playerName, position)
         Mysql.close(connection)
+        return playerPosition;
     }
 
     // private

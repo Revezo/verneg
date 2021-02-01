@@ -27,12 +27,18 @@ local function setPlayersPropertiesAndEquipment(pid) {
     equipItem(pid, Items.id("ITRW_BOW_L_04"));
 }
 
-function onPlayerJoin(pid) {
+function onPlayerAuthenticate(pid) {
     setPlayersPropertiesAndEquipment(pid);
 }
+
+function onPlayerRegister(pid) {
+    setPlayersPropertiesAndEquipment(pid);
+}
+
 function onPlayerRespawn(pid) {
     setPlayersPropertiesAndEquipment(pid);
 }
 
-addEventHandler("onPlayerJoin", onPlayerJoin)
+addEventHandler("onPlayerAuthenticate", onPlayerAuthenticate)
+addEventHandler("onPlayerRegister", onPlayerRegister)
 addEventHandler("onPlayerRespawn", onPlayerRespawn)

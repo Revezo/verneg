@@ -1,0 +1,3 @@
+<server>
+	<import src="auth/scripts.xml" />
+</server>

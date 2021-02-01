@@ -1,7 +1,7 @@
 <server>
-    <script src="client-side/PlayerPositionEventListener.nut" type="client" />
+    <script src="client-side/PlayerPositionListener.nut" type="client" />
 
-    <script src="server-side/PlayerPositionEventListener.nut" type="server" />
+    <script src="server-side/PlayerPositionListener.nut" type="server" />
     <script src="server-side/PlayerPositionRepository.nut" type="server" />
     <script src="server-side/Position.nut" type="server" />
 </server>

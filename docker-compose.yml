@@ -23,6 +23,7 @@ services:
       - 3306:3306
   flyway:
     image: flyway/flyway:7.5
+    container_name: flyway-verneg
     command: -url=jdbc:mysql://mysql -schemas=verneg_db -user=root -password=root -connectRetries=60 migrate
     volumes:
       - ./docker/flyway/sql:/flyway/sql
