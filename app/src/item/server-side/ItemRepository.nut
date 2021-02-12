@@ -1,13 +1,23 @@
-AccountRepository <- {
-    
-    function findPlayer(serverId, playerName) {
+ItemRepository <- {
+    CHARACTER_ID_COLUMN = "character_id",
+    STORAGE_ID_COLUMN = "storage_id",
+    GROUND_ID_COLUMN = "ground_id",
+
+    function find(itemInstance, playerName) {
         local connection = Mysql.connection()
         local player = find(connection, serverId, playerName)
         Mysql.close(connection)
         return player
     }
 
-    function registerPlayer(serverId, playerName) {
+    function create(item) {
+        local connection = Mysql.connection()
+        local saveSuccessful = executeCreateQuery(connection, item)
+        Mysql.close(connection)
+        return saveSuccessful
+    }
+
+    function moveItem(item) {
         local connection = Mysql.connection()
         local saveSuccessful = save(connection, serverId, playerName)
         if (!saveSuccessful) {
@@ -25,9 +35,8 @@ AccountRepository <- {
             mysql_free_result(result)
 
             if (row_assoc) {
-                print("CharacterId >dbId|serverId|name:" + row_assoc["id"] + "|" + serverId + "|" + row_assoc["name"])
-                local characterId = CharacterId(row_assoc["id"], serverId, row_assoc["name"])
-                return Player(characterId)
+                print("row_assoc: " + row_assoc["id"] + "|" + row_assoc["name"])
+                return Player(serverId, row_assoc["id"], row_assoc["name"])
             } else {
                 return null
             }
@@ -38,8 +47,8 @@ AccountRepository <- {
         }
     }
 
-    function save(connection, serverId, playerName) {
-        local result = mysql_query(connection, savePlayerQuery(playerName))
+    function executeCreateQuery(connection, item) {
+        local result = mysql_query(connection, createItemQuery(item))
         local mysqlErrorId = mysql_errno(connection)
         if (mysqlErrorId != 0) {
             print(mysql_error(connection))
@@ -53,7 +62,17 @@ AccountRepository <- {
         return format("SELECT * FROM characters where `name` = '%s'", playerName)
     }
 
-    function savePlayerQuery(playerName) {
-        return format("INSERT INTO characters(`name`, `uuid`) VALUES ('%s', UUID())", playerName)
+    function createItemQuery(item) {
+        return format("INSERT INTO items(`instance`, `amount`, `%s`) VALUES ('%s', '%d', '%d')", determinePlaceId(item.placeId), item.instance, item.amount, item.placeId.value)
+    }
+    
+    function determinePlaceId(placeId) {
+        if (placeId instanceof OwnerId) {
+            return CHARACTER_ID_COLUMN
+        } else if (placeId instanceof StorageId) {
+            return STORAGE_ID_COLUMN
+        } else if (placeId instanceof GroundId) {
+            return GROUND_ID_COLUMN
+        }
     }
 }

@@ -10,7 +10,7 @@ PlayerList <- {
     }
 
     function insert(player) {
-        players.insert(player.serverId, player)
+        players.insert(player.characterId.serverId, player)
     }
 
     function remove(pid) {

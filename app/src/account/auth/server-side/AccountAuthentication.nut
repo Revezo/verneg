@@ -23,8 +23,8 @@ AccountAuthentication <- {
     function authenticatePlayer(player) {
         player.authenticate()
         PlayerList.insert(player)
-        callEvent("onPlayerAuthenticate", player.serverId)
-        sendMessageToAll(0, 255, 0, player.username + " connected with the server.")        
+        callEvent("onPlayerAuthenticate", player.characterId.serverId)
+        sendMessageToAll(0, 255, 0, player.characterId.name + " connected with the server.")        
     }
 
     function registerPlayer(pid, username) {
@@ -32,8 +32,9 @@ AccountAuthentication <- {
         if (registeredPlayer) {
             registeredPlayer.authenticate()
             PlayerList.insert(registeredPlayer)
-            callEvent("onPlayerRegister", registeredPlayer.serverId)
-            sendMessageToAll(0, 255, 0, registeredPlayer.username + " connected with the server.")
+            print("registered player: " + registeredPlayer.characterId.serverId + "|" +  registeredPlayer.characterId.databaseId + "|" +  registeredPlayer.characterId.name)
+            callEvent("onPlayerRegister", registeredPlayer.characterId.serverId)
+            sendMessageToAll(0, 255, 0, registeredPlayer.characterId.name + " connected with the server.")
         } else {
             kick(pid, "Registration failed")
         }

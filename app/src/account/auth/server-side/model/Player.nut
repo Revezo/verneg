@@ -1,13 +1,9 @@
 class Player {
-    serverId = null
-    databaseId = null
-    username = null
+    characterId = null
     authenticated = null
 
-    constructor(serverId, databaseId, username) {
-        this.serverId = serverId
-        this.databaseId = databaseId
-        this.username = username
+    constructor(characterId) {
+        this.characterId = characterId
         this.authenticated = false   
     }
 

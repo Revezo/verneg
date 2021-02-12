@@ -1,4 +1,3 @@
 <server>
-    <import src="equipment/scripts.xml" />
     <import src="position/scripts.xml" />
 </server>

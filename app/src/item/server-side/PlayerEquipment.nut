@@ -1,3 +1,25 @@
+PlayerEquipment <- {
+    function giveStartingEquipment(pid) {
+        local itemInstance = "ITFO_BEER"
+        local itemAmount = 1
+        local ownerId = OwnerId(PlayerList.get(pid).characterId.databaseId)
+        local item = Item(itemInstance, itemAmount, ownerId)
+        ItemRepository.create(item)
+        giveItem(pid, Items.id(itemInstance), itemAmount)
+    }
+
+    function retrievePlayerEquipment(pid) {
+        local retrievedItems = ItemRepository.retrieveEquipment(ownerId)
+    
+    }
+    
+    function retrievePlayerItem(pid) {
+        local ownerId = OwnerId(PlayerList.get(pid).characterId.databaseId)
+        local retrievedItem = ItemRepository.find(itemInstance, ownerId)
+    
+    }
+}
+
 local function setPlayersPropertiesAndEquipment(pid) {
     // Stats
     setPlayerHealth(pid, 1000);
@@ -26,19 +48,3 @@ local function setPlayersPropertiesAndEquipment(pid) {
     equipItem(pid, Items.id("ITMW_1H_SPECIAL_04"));
     equipItem(pid, Items.id("ITRW_BOW_L_04"));
 }
-
-function onPlayerAuthenticate(pid) {
-    setPlayersPropertiesAndEquipment(pid);
-}
-
-function onPlayerRegister(pid) {
-    setPlayersPropertiesAndEquipment(pid);
-}
-
-function onPlayerRespawn(pid) {
-    setPlayersPropertiesAndEquipment(pid);
-}
-
-addEventHandler("onPlayerAuthenticate", onPlayerAuthenticate)
-addEventHandler("onPlayerRegister", onPlayerRegister)
-addEventHandler("onPlayerRespawn", onPlayerRespawn)
