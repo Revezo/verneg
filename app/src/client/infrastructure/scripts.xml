@@ -1,0 +1,5 @@
+<server>
+    <script src="network/packet/CallReceiver.nut" type="client" />
+    <script src="network/packet/PacketListener.nut" type="client" />
+    <script src="network/packet/ServerFunctionCaller.nut" type="client" />
+</server>

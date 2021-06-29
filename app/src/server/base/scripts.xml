@@ -1,0 +1,8 @@
+<server>
+    <script src="admincontrol/acp.nut" type="server" />
+
+    <script src="chat/ChatEventSender.nut" type="server" />
+    <script src="chat/ServerChatListener.nut" type="server" />
+
+    <script src="playercontrol/main.nut" type="server" />
+</server>

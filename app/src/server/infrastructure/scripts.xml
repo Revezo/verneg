@@ -1,0 +1,7 @@
+<server>
+    <script src="database/Mysql.nut" type="server" />
+
+    <script src="network/packet/PacketListener.nut" type="server" />
+    <script src="network/packet/CallReceiver.nut" type="server" />
+    <script src="network/packet/ClientFunctionCaller.nut" type="server" />
+</server>

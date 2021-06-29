@@ -1,0 +1,4 @@
+<server>
+	<script src="network/Packet.nut" type="client" />
+	<script src="network/Packet.nut" type="server" />
+</server>

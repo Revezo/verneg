@@ -1,0 +1,10 @@
+<server>
+	<script src="model/GroundId.nut" type="server" />
+	<script src="model/StorageId.nut" type="server" />
+	<script src="model/Item.nut" type="server" />
+	<script src="model/OwnerId.nut" type="server" />
+
+	<script src="ItemRepository.nut" type="server" />
+	<script src="PlayerEquipmentListener.nut" type="server" />
+	<script src="PlayerEquipment.nut" type="server" />
+</server>

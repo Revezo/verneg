@@ -1,3 +1,0 @@
-<server>
-    <script src="server-side/Mysql.nut" type="server" />
-</server>

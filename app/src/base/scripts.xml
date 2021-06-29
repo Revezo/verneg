@@ -1,5 +1,0 @@
-<server>
-	<import src="chat/scripts.xml" />
-	<import src="admincontrol/scripts.xml" />
-	<import src="playercontrol/scripts.xml" />
-</server>

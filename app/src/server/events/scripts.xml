@@ -1,0 +1,3 @@
+<server>
+    <script src="PlayerEvents.nut" type="server" />
+</server>

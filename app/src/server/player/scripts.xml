@@ -1,0 +1,5 @@
+<server>
+    <script src="position/PlayerPositionListener.nut" type="server" />
+    <script src="position/PlayerPositionRepository.nut" type="server" />
+    <script src="position/Position.nut" type="server" />
+</server>

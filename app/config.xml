@@ -11,12 +11,16 @@
 	]]>
 	</description>
 
-	<import src="src/events/scripts.xml" />
+	<!-- <import src="src/events/scripts.xml" />
 	<import src="src/infrastructure/scripts.xml" />
 	<import src="src/base/scripts.xml" />
 	<import src="src/account/scripts.xml" />
 	<import src="src/player/scripts.xml" />
-	<import src="src/item/scripts.xml" />
+	<import src="src/item/scripts.xml" /> -->
+
+	<import src="src/global/scripts.xml" />
+	<import src="src/client/scripts.xml" />
+	<import src="src/server/scripts.xml" />
 
  	<module src="modules/MySQL.so" type="server" />
 

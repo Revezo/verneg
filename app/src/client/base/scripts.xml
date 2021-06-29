@@ -1,0 +1,22 @@
+<server>
+    <script src="chat/chatline/AbstractChatLine.nut" type="client" />
+    <script src="chat/chatline/ChatLine.nut" type="client" />
+    <script src="chat/chatline/DoChatLine.nut" type="client" />
+    <script src="chat/chatline/GlobalOocChatLine.nut" type="client" />
+    <script src="chat/chatline/InCharacterChatLine.nut" type="client" />
+    <script src="chat/chatline/LocalOocChatLine.nut" type="client" />
+    <script src="chat/chatline/MeChatLine.nut" type="client" />
+    <script src="chat/chatline/ReceivedPmChatLine.nut" type="client" />
+    <script src="chat/chatline/SentPmChatLine.nut" type="client" />
+
+    <script src="chat/Chat.nut" type="client" />
+    <script src="chat/ChatUtils.nut" type="client" />
+    <script src="chat/ClientChatListener.nut" type="client" />
+    <script src="chat/Color.nut" type="client" />
+
+    <script src="playercontrol/BaseListener.nut" type="client" />
+    <script src="playercontrol/NetStats.nut" type="client" />
+    <script src="playercontrol/NetStatsListener.nut" type="client" />
+    <script src="playercontrol/PlayerList.nut" type="client" />
+    <script src="playercontrol/PlayerListListener.nut" type="client" />
+</server>

@@ -1,4 +1,0 @@
-<server>
-    <import src="network/scripts.xml" />
-	<import src="database/scripts.xml" />
-</server>

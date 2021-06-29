@@ -1,0 +1,9 @@
+<server>
+    <import src="events/scripts.xml" />
+
+    <import src="account/scripts.xml" />
+    <import src="base/scripts.xml" />
+    <import src="infrastructure/scripts.xml" />
+    <import src="item/scripts.xml" />
+    <import src="player/scripts.xml" />
+</server>

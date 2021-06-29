@@ -1,0 +1,8 @@
+<server>
+    <script src="auth/AccountListener.nut" type="server" />
+    <script src="auth/AccountAuthentication.nut" type="server" />
+    <script src="auth/model/Player.nut" type="server" />
+    <script src="auth/model/CharacterId.nut" type="server" />
+    <script src="auth/PlayerList.nut" type="server" />
+    <script src="auth/AccountRepository.nut" type="server" />
+</server>
