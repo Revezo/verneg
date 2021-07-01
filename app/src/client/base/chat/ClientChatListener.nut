@@ -33,6 +33,7 @@ local function onPlayerMessage(senderId, r, g, b, message) {
 }
 
 function onInCharacterMessage(senderId, distance, message) {
+    print("In character message received: " +  "|" + senderId + "|" + message + "|");
     Chat.printLine(InCharacterChatLine(senderId, distance, message));
 }
 

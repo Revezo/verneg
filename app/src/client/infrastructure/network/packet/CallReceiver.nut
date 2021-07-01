@@ -27,7 +27,7 @@ local function packetReceiver(packet) {
         }
     }
     func += ")";
-    print(func)
+    print("Packet receiver | received function: " + func)
     local compiledScript = compilestring(func);
     compiledScript();
 }
