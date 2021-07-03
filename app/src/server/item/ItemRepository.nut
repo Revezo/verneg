@@ -3,11 +3,13 @@ ItemRepository <- {
     STORAGE_ID_COLUMN = "storage_id",
     GROUND_ID_COLUMN = "ground_id",
 
-    function find(itemInstance, playerName) {
+    function findAllPlayerItems(ownerId) {
+        print("ItemRepository.findAllPlayerItems, "+ ownerId.tostring())
         local connection = Mysql.connection()
-        local player = find(connection, serverId, playerName)
+        local items = queryAllPlayerItems(connection, ownerId)
         Mysql.close(connection)
-        return player
+        print("ItemRepository.findAllPlayerItems items retrieved, " + ownerId.tostring() + " ,items=" + ArrayUtils.printArray(items))
+        return items
     }
 
     function create(item) {
@@ -17,33 +19,33 @@ ItemRepository <- {
         return saveSuccessful
     }
 
-    function moveItem(item) {
-        local connection = Mysql.connection()
-        local saveSuccessful = save(connection, serverId, playerName)
-        if (!saveSuccessful) {
-            Mysql.close(connection)
-            return false    
-        }
-        return findPlayer(serverId, playerName)
-    }
-
     // private
-    function find(connection, serverId, playerName) {
-        local result = mysql_query(connection, findPlayerQuery(playerName))
-        if (result) {
-            local row_assoc = mysql_fetch_assoc(result)
-            mysql_free_result(result)
+    function queryAllPlayerItems(connection, ownerId) {
+        print("ItemRepository.queryAllPlayerItems, " + ownerId.tostring())
+        local queryResult = mysql_query(connection, findAllPlayerItemsQuery(ownerId.value))
 
-            if (row_assoc) {
-                print("row_assoc: " + row_assoc["id"] + "|" + row_assoc["name"])
-                return Player(serverId, row_assoc["id"], row_assoc["name"])
-            } else {
-                return null
-            }
-        } else {
+        if (queryResult) {
+            print("ItemRepository.queryAllPlayerItems, query done. Result rows count: " + mysql_num_rows(queryResult));
+            local items = fetchAllItems([], queryResult, ownerId)
+            mysql_free_result(queryResult);
+            return items
+        }
+        else {
             print(mysql_error(connection))
             print("Error ID: " + mysql_errno(connection))
             return null
+        }
+    }
+
+    function fetchAllItems(acc, resultHandler, ownerId) {
+        local row = mysql_fetch_assoc(resultHandler);
+        if (!row) {
+            return acc
+        } else {
+            local item = Item(row["instance"], row["amount"], ownerId);
+            print("ItemRepository.fetchAllItems fetched " + item.tostring());
+            acc.push(item);
+            return fetchAllItems(acc, resultHandler, ownerId);
         }
     }
 
@@ -58,8 +60,8 @@ ItemRepository <- {
         return true
     }
 
-    function findPlayerQuery(playerName) {
-        return format("SELECT * FROM characters where `name` = '%s'", playerName)
+    function findAllPlayerItemsQuery(characterId) {
+        return format("SELECT `instance`, `amount` FROM items WHERE character_id = %d", characterId)
     }
 
     function createItemQuery(item) {

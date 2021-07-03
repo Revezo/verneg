@@ -8,4 +8,8 @@ class Item {
         this.amount = amount
         this.placeId = placeId
     }
+
+    function tostring() {
+        return "Item[instance=" + instance + ", amount=" + amount + ",placeId=" + placeId.tostring() + "]"
+    }
 }

@@ -1,22 +1,23 @@
 PlayerEquipment <- {
     function giveStartingEquipment(pid) {
+        print("PlayerEquipment.giveStartingEquipment, pid=" + pid)
         local itemInstance = "ITFO_BEER"
         local itemAmount = 1
         local ownerId = OwnerId(PlayerList.get(pid).characterId.databaseId)
         local item = Item(itemInstance, itemAmount, ownerId)
         ItemRepository.create(item)
         giveItem(pid, Items.id(itemInstance), itemAmount)
+        print("Starting equipment given, pid=" + pid)
     }
 
     function retrievePlayerEquipment(pid) {
-        local retrievedItems = ItemRepository.retrieveEquipment(ownerId)
-    
-    }
-    
-    function retrievePlayerItem(pid) {
-        local ownerId = OwnerId(PlayerList.get(pid).characterId.databaseId)
-        local retrievedItem = ItemRepository.find(itemInstance, ownerId)
-    
+        print("PlayerEquipment.retrievePlayerEquipment, pid=" + pid)
+        local retrievedItems = ItemRepository.findAllPlayerItems(OwnerId(PlayerList.get(pid).characterId.databaseId))
+        foreach (item in retrievedItems) {
+            print("PlayerEquipment.retrievePlayerEquipment, give " + item.tostring() + " to pid=" + pid)
+            giveItem(pid, Items.id(item.instance), item.amount);
+        }
+        print("Player items retrieved, pid=" + pid)
     }
 }
 

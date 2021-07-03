@@ -1,6 +1,0 @@
-ItemRepository <- {
-    
-    function giveToPlayer() {
-        
-    }
-}
